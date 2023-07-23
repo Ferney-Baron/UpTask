@@ -1,6 +1,6 @@
 <div class="contenedor login">
-    <h1 class="uptask">UpTask</h1>
-    <p class="tagline">Crea y Administra Tus Proyectos</p>
+    
+<?php include_once __DIR__ . '/../templates/nombre-sitio.php'; ?>
 
     <div class="contendor-sm">
         <p class="descripcion-pagina">Iniciar Sesión</p>
@@ -16,7 +16,7 @@
                 >
             </div>
             <div class="campo">
-                <label for="password">Email</label>
+                <label for="password">Password</label>
                 <input 
                     type="password"
                     id="password"

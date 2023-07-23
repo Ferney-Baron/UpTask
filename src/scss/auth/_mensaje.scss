@@ -1,0 +1,16 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.mensaje {
+
+    margin-top: 5rem;
+
+    @include m.tablet {
+        width: 70%;
+    }
+
+    .uptask {
+        @include m.TextoDegradado(v.$naranja);
+    }
+
+}

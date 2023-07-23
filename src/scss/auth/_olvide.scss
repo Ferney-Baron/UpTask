@@ -1,25 +1,26 @@
-@use 'base/mixins' as m;
 @use 'base/variables' as v;
+@use 'base/mixins' as m;
 
-.login {
+
+.olvide {
     margin-top: 5rem;
-
 
     @include m.tablet {
         width: 70%;
     }
 
     .uptask {
-       @include m.TextoDegradado(v.$cyan);
+       @include m.TextoDegradado(v.$rosa);
     }
 
     input[type="submit"] {
-        @include m.boton(v.$cyan, v.$blanco)
+        @include m.boton(v.$rosa, v.$blanco)
     }
 
     .acciones {
         a {
-            color: v.$cyan;
+            color: v.$rosa;
         }
     }
+
 }
