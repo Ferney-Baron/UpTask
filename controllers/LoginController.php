@@ -1,6 +1,7 @@
 <?php
 
 namespace Controllers;
+use Model\Usuario;
 use MVC\Router;
 
 class LoginController {
@@ -8,6 +9,7 @@ class LoginController {
     public static function login(Router $router) {
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
         }
 
         // Render a la vista
@@ -21,11 +23,39 @@ class LoginController {
     }
     public static function crear(Router $router) {
 
+        $usuario = new Usuario;
+        $alertas = [];
+
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $usuario->sincronizar($_POST);
+            $alertas = $usuario->validarCuentaNueva();
+
+           if(empty($alertas)) {
+                $existeUsuario = Usuario::where('email', $usuario->email);
+
+                if($existeUsuario) {
+                    Usuario::setAlerta('error', 'El Usuario ya esta registrado');
+                    $alertas = Usuario::getAlertas();
+                } else {
+                    $usuario->hashPassword();
+
+                    //Eliminar Password2
+                    unset($usuario->password2);
+                    $usuario->crearToken();
+
+                    $resultado = $usuario->guardar();
+
+                    if($resultado) {
+                        header('Location: /mensaje');
+                    }
+                }
+           }
         }
 
         $router->render('auth/crear', [
             'titulo' => 'Crear tu Cueta en UpTask',
+            'usuario' => $usuario,
+            'alertas' => $alertas
         ]);
     }
 
