@@ -2,7 +2,7 @@
     
 <?php include_once __DIR__ . '/../templates/nombre-sitio.php'; ?>
 
-    <div class="contendor-sm">
+    <div class="contenedor-sm">
         <p class="descripcion-pagina">Recupera tu Cuenta</p>
 
         <form class="formulario" method="POST" action="/olvide">

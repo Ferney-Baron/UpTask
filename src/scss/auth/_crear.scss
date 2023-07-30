@@ -4,9 +4,9 @@
 .crear {
     margin-top: 5rem;
 
-    @include m.tablet {
-        width: 70%;
-    }
+    // @include m.tablet {
+    //     width: 70%;
+    // }
 
     .uptask {
        @include m.TextoDegradado(v.$morado);
